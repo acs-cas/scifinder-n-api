@@ -1,0 +1,20 @@
+{
+  "name": "scifinder-api-tutorials",
+  "version": "1.0.0",
+  "description": "A set of tutorials for the Scifinder-n API",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "tutorial1": "tutorial1"
+  },
+  "keywords": [
+    "scifinder-n",
+    "tutorials"
+  ],
+  "author": "Chemical Abstracts Service",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "openid-client": "^4.7.4"
+  }
+}
