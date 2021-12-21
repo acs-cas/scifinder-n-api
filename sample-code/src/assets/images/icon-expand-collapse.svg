@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+    <style type="text/css">
+        .st0{fill:#3277BA;}
+    </style>
+    <path class="st0"
+        d="M11 12.06l4.245-4.243c.39-.39 1.02-.392 1.412.002.39.39.393 1.02.002 1.41l-4.954 4.954c-.194.195-.45.293-.704.293-.257 0-.512-.098-.707-.293L5.342 9.23c-.39-.388-.392-1.02.002-1.41.39-.392 1.022-.393 1.413-.003L11 12.06z"/>
+</svg>

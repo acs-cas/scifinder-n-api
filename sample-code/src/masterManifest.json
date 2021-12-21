@@ -1,0 +1,6 @@
+{
+    "sourceName": "My Application",
+    "addins": [
+        "my-application-host-url/static/my-application/metadata.json"
+    ]
+}

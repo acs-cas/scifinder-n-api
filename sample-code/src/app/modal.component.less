@@ -1,0 +1,379 @@
+@import '../assets/styles/_variables';
+
+@border-radius: 4px;
+
+@c-drop-down-active: #DBDBDB;
+@c-drop-down-active-border: #CACACA;
+
+.wait-state-container {
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: fade(@c-white, 90%);
+    z-index: 999;
+
+    .wait-state {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%);
+    }
+
+    .wait-state > img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 20px;
+    }
+}
+
+.container {
+    border-top: 9px solid @c-accent;
+    padding: 0 18px 0 18px;
+    width: 375px;
+    min-width: 375px;
+    max-width: none;
+    height: 660px;
+    min-height: 660px;
+    max-height: none;
+    background-color: @c-white;
+
+    .top-row,
+    .btn-row {
+        padding-top: 20px;
+    }
+
+    .centered {
+        text-align: center;
+    }
+
+    .logo {
+        width: 220px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .canvas {
+        min-width: 306px;
+        width: 100%;
+        min-height: 164px;
+        background-color: @c-white;
+        border: 1px solid @c-border;
+        border-radius: @border-radius;
+        margin: 19px 0 10px 0;
+
+        .svg {
+            width: inherit;
+            height: inherit;
+            min-height: inherit;
+        }
+    }
+
+    .italic-text {
+        font-style: italic;
+    }
+
+    .secondary-text {
+        color: @c-text-secondary;
+        margin-bottom: 3px;
+    }
+
+    .dropdown {
+        height: 34px;
+        width: 98%;
+        margin-bottom: 10px;
+
+        .btn {
+            height: inherit;
+            width: inherit;
+            text-align: left;
+        }
+
+        .btn-primary {
+            color: @c-text;
+            background-color: @c-white;
+            border-color: @c-border;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        .btn-primary:focus {
+            background-color: @c-drop-down-active;
+            border-color: @c-drop-down-active-border;
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-caret {
+            position: absolute;
+            right: 10px;
+            top: 45%;
+            border-top: 4px solid #000000;
+            border-right: 4px solid transparent;
+            border-bottom: 0 dotted;
+            border-left: 4px solid transparent;
+        }
+
+        ul {
+            width: 100%;
+        }
+
+        .dropdown-menu > li:hover > a,
+        .dropdown-menu > li:hover > a,
+        .dropdown-menu > .active > a,
+        .dropdown-menu > .active > a:focus,
+        .dropdown-menu > .active > a:hover {
+            background-color: @c-accent;
+            color: @c-white;
+        }
+    }
+
+    .markush-checkbox {
+        padding-bottom: 10px;
+
+        label {
+            margin-bottom: 0;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+
+    .cas-checkbox {
+        position: absolute;
+        left: -9999px;
+    }
+
+    .cas-checkbox + label {
+        &:before {
+            cursor: pointer;
+            background-color: @c-white;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: @border-radius;
+            transition: background-color 100ms,
+            background-image 100ms,
+            border 100ms;
+            background-image: url('../assets/images/checkbox-checked.svg');
+            content: "";
+            display: inline-block;
+            vertical-align: top;
+            width: 16px;
+            height: 16px;
+            margin: 2px 4px 0 0;
+            border: 1px solid #c6c6c8;
+        }
+    }
+
+    .cas-checkbox:checked + label {
+        &:before {
+            background-color: @c-accent;
+            border-color: @c-accent;
+        }
+    }
+
+    .view-proxy-link {
+        color: @c-link;
+        cursor: pointer;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    ::ng-deep .card.customClass,
+    ::ng-deep .card.customClass .card-header,
+    ::ng-deep .panel.customClass,
+    ::ng-deep .panel.customClass .panel-body {
+        background-color: inherit;
+        color: inherit;
+        border: none;
+        padding: 0;
+    }
+
+    ::ng-deep .panel.customClass .accordion-toggle {
+        padding-bottom: 10px;
+    }
+
+    .proxy-settings {
+        width: 100%;
+    }
+
+    img.icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        transform-origin: 0;
+        fill: @c-link;
+        vertical-align: middle;
+        margin-left: 10px;
+        margin-bottom: 1px;
+        cursor: pointer;
+    }
+
+    img.icon-expand {
+        transform: rotate(270deg);
+        transform-origin: center center;
+        transition: transform 250ms;
+    }
+
+    img.icon-collapse {
+        transform: rotate(360deg);
+        transform-origin: center center;
+        transition: transform 250ms;
+    }
+
+    .text-input,
+    .proxy-input,
+    .proxy-input-error {
+        width: 98%;
+        height: 30px;
+        border: 1px solid @c-border;
+        border-radius: @border-radius;
+        text-indent: 5px;
+        margin: 0 0 10px 3px;
+        padding-right: 35px;
+    }
+
+    .text-input:focus,
+    .proxy-input:focus {
+        outline: none !important;
+        box-shadow: 0 0 5px @c-accent;
+    }
+
+    .text-input::-ms-clear,
+    .proxy-input::-ms-clear {
+        display: none;
+    }
+
+    .references-textbox {
+        margin-top: 15px;
+        position: relative;
+    }
+
+    .proxy-input-error {
+        color: @c-error-text;
+        background-color: @c-error-background;
+        border: 1px solid @c-error-border;
+        padding-top: 3px;
+    }
+
+    .text-padding {
+        padding-bottom: 10px;
+    }
+
+    .clearX-clickable-area {
+        display: none;
+        width: 40px;
+        height: 29px;
+        border: none;
+        position: absolute;
+        z-index: 3;
+        background: transparent url('../assets/images/textbox-clear.gif') no-repeat center center;
+        cursor: pointer;
+    }
+
+    .clearX ~ .clearX-clickable-area {
+        display: inline-block;
+        right: 1.75%;
+    }
+
+    a.learn-more {
+        cursor: pointer;
+        color: @c-link;
+        text-decoration: none;
+    }
+
+    a.learn-more:hover {
+        color: @c-link-hover;
+    }
+
+    // Elements with more than one class flicker as the classes are applied in the application.
+    // To fix this, elements need to have one class that assigns them a style on load.
+    // Ex. There cannot be a generic .btn style that is shared across all buttons.
+    .btn-secondary {
+        min-height: 34px;
+        min-width: 75px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        font-size: @font-size-base;
+        font-weight: @font-weight-regular;
+        cursor: pointer;
+        border-radius: @border-radius;
+        box-shadow: @c-box-shadow;
+        color: @c-text;
+        background-color: @c-white;
+        border: 1px solid @c-border;
+    }
+
+    .btn-primary {
+        min-height: 34px;
+        min-width: 75px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        font-size: @font-size-base;
+        font-weight: @font-weight-regular;
+        cursor: pointer;
+        border-radius: @border-radius;
+        box-shadow: @c-box-shadow;
+        color: @c-white;
+        background-color: @c-accent;
+        border: 1px solid @c-accent;
+        pointer-events: all;
+    }
+
+    .btn-primary:hover {
+        background-color: @c-accent-hover;
+        border: 1px solid @c-accent-hover;
+    }
+
+    .btn-disabled,
+    .btn[disabled] {
+        min-height: 34px;
+        min-width: 75px;
+        margin-right: 10px;
+        margin-bottom: 0;
+        font-size: @font-size-base;
+        font-weight: @font-weight-regular;
+        cursor: pointer;
+        border-radius: @border-radius;
+        color: @c-disabled;
+        background-color: @c-background;
+        border: 1px solid @c-border;
+        pointer-events: none;
+        box-shadow: none;
+    }
+
+    #button-basic {
+        width: 100%;
+        text-align: left;
+        margin: 0 0 0 3px;
+    }
+
+    .error-container {
+        width: 98%;
+        min-height: 34px;
+        color: @c-text-error;
+        background-color: @c-background-error;
+        border: 1px solid @c-border-error;
+        border-radius: @border-radius;
+        padding: 7px 13px 7px 13px;
+        margin: 0 0 12px 3px;
+
+        ul {
+            padding-left: 14px;
+            margin-bottom: 0;
+        }
+    }
+}
