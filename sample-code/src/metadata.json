@@ -1,0 +1,16 @@
+{
+  "name": "Search SciFinderⁿ",
+  "description": "Search SciFinderⁿ",
+  "version": "1.0",
+  "menuItemText": "Search SciFinderⁿ",
+  "minimumAPIVersion": "1.0",
+  "url": "my-application-host-url/static/my-application/index.html",
+  "enableCommandOnSelection": "true",
+  "toolbar": {
+    "image24": "my-application-host-url/static/my-application/assets/images/icon-24x24.png",
+    "image32": "my-application-host-url/static/my-application/assets/images/icon-32x32.png",
+    "image48": "my-application-host-url/static/my-application/assets/images/icon-48x48.png",
+    "image64": "my-application-host-url/static/my-application/assets/images/icon-64x64.png",
+    "tooltip": "SciFinderⁿ"
+  }
+}

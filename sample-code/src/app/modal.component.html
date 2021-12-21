@@ -1,0 +1,82 @@
+<div ngResizable [rzAspectRatio]="true" class="container">
+    <div class="top-row centered">
+        <img class="logo" src="assets/images/sfn-logo-header.svg">
+    </div>
+    <div class="canvas">
+        <div class="svg" [innerHTML]="structure"></div>
+    </div>
+    <p class="secondary-text">Search for...</p>
+    <div class="dropdown" dropdown>
+        <button id="button-basic" dropdownToggle type="button" class="btn-primary dropdown-toggle"
+                aria-controls="dropdown-basic">
+            <span [ngClass]="resultType === selectString ? 'italic-text' : null">{{ resultType }}</span>
+            <span class="dropdown-caret"></span>
+        </button>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+            <li role="menuitem" (click)="changeResultType(SEARCH_TYPES.Substances)">
+                <a class="dropdown-item">{{ SEARCH_TYPES.Substances }}</a>
+            </li>
+            <li role="menuitem" (click)="changeResultType(SEARCH_TYPES.Reactions)">
+                <a class="dropdown-item">{{ SEARCH_TYPES.Reactions }}</a>
+            </li>
+            <li role="menuitem" (click)="changeResultType(SEARCH_TYPES.References)">
+                <a class="dropdown-item">{{ SEARCH_TYPES.References }}</a>
+            </li>
+            <li role="menuitem" (click)="changeResultType(SEARCH_TYPES.Suppliers)">
+                <a class="dropdown-item">{{ SEARCH_TYPES.Suppliers }}</a>
+            </li>
+        </ul>
+    </div>
+    <div class="markush-checkbox" *ngIf="resultType === SEARCH_TYPES.Substances">
+        <input type="checkbox"
+               class="cas-checkbox"
+               id="search-markush-checkbox"
+               name="isPatentMarkush"
+               [(ngModel)]="searchMarkush"/>
+        <label for="search-markush-checkbox">Search Patent Markush</label>
+    </div>
+    <div class="references-textbox" *ngIf="resultType === SEARCH_TYPES.References">
+        <p class="secondary-text">Keyword or Substance Name (Optional)</p>
+        <input #textInput type="text" class="text-input clearX"
+               [ngClass]="{'clearX': referencesText.length > 0}"
+               [(ngModel)]="referencesText"
+               maxlength="2000"/>
+        <a class="clearX-clickable-area" (click)="clearTextQuery()"></a>
+    </div>
+    <div *ngIf="isUnauthorized" class="error-container">
+        You are not authorized to access SciFinderⁿ. Please contact your system administrator or institutional keyholder.
+    </div>
+    <div *ngIf="showError.serverError" class="error-container">There seems to be a problem. Click the Cancel button and
+        resubmit your search.</div>
+    <div *ngIf="showError.structureError" class="error-container">Structure does not meet the following search
+        requirements:
+        <ul>
+            <li *ngFor="let error of showError.structureErrors">{{ error }}</li>
+        </ul>
+    </div>
+    <accordion [isAnimated]="true" class="proxy-settings">
+        <accordion-group (isOpenChange)="viewProxySettings()" [panelClass]="customClass">
+                <span accordion-heading class="view-proxy-link">
+                    <span>Proxy Settings</span>
+                    <img class="icon" [ngClass]="proxySettingsExpanded ? 'icon-collapse' : 'icon-expand'"
+                         src="assets/images/icon-expand-collapse.svg">
+                </span>
+            <p class="secondary-text text-padding">If your institution requires a proxy connection to access
+                SciFinder<sup>n</sup>,
+                enter the URL below:</p>
+            <input #proxyInput type="text" class="proxy-input clearX"
+                   [ngClass]="{'clearX': proxyUrl.length > 0}"
+                   [(ngModel)]="proxyUrl"
+                   (blur)="setupProxyAndStore()"
+                   maxlength="2000"/>
+            <a class="clearX-clickable-area" (click)="clearProxySettings()"></a>
+        </accordion-group>
+    </accordion>
+    <div class="proxy-input-error" *ngIf="showError.proxyValidationError && proxySettingsExpanded">Invalid URL format. Please try again.</div>
+    <p class="secondary-text" *ngIf="proxySettingsExpanded">Don't know your proxy URL? <a class="learn-more">Learn More.</a></p>
+    <div class="btn-row centered">
+        <button class="btn-secondary" (click)="closeWindow()">Cancel</button>
+        <button class="btn-disabled btn-search" [disabled]="(isSearchEnabled | async) === false" (click)="search()">Search</button>
+    </div>
+</div>

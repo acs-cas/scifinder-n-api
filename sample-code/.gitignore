@@ -1,0 +1,11 @@
+*.swp
+*.zip
+.tmp/
+coverage/
+dist/
+node/
+node_modules/
+node_tmp/
+npm_swap/
+test-reports/
+todo.md
