@@ -1,5 +1,5 @@
 
-<img width="300" height="173" alt="CAS_PREF_3C_RGB_POS (4)" src="https://github.com/user-attachments/assets/696e5ce9-e342-433f-8944-74763fa87e9f" />
+<img width="300" height="173" alt="CAS_PREF_3C_RGB_POS (4)" src="images/cas_pref_3c_rgb_pos__4__360.png" />
 
 # Samples and documentation for the [CAS SciFinder](https://scifinder.cas.org) API
 
